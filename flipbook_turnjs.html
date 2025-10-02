@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flipbook BUKU.pdf (Turn.js)</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;font-family:"Poppins",sans-serif;background:#f4f7fb;color:#222}
+  header{background:#0055aa;color:white;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+  header h1{margin:0;font-size:18px;font-weight:600}
+  .book-container{display:flex;justify-content:center;align-items:center;margin:20px}
+  #flipbook{width:90%;height:80vh;box-shadow:0 10px 30px rgba(0,0,0,.2);background:white}
+  #flipbook .page{background:white}
+  #flipbook img{width:100%;height:100%;object-fit:contain;display:block}
+  .thumbstrip{display:flex;gap:6px;overflow-x:auto;padding:8px 10px;border-top:1px solid #ddd;background:#fff}
+  .thumbstrip img{height:60px;border-radius:4px;cursor:pointer;transition:.2s;border:2px solid transparent}
+  .thumbstrip img:hover{border-color:#0055aa}
+  .thumbstrip img.active{border-color:#ff6600}
+  @media(max-width:700px){
+    #flipbook{width:100%;height:70vh}
+    .thumbstrip img{height:40px}
+  }
+  .controls{text-align:center;margin:12px}
+  .btn{padding:8px 12px;margin:4px;border:none;border-radius:6px;background:#0055aa;color:white;cursor:pointer;font-weight:600}
+  .btn:hover{background:#003d7a}
+</style>
+</head>
+<body>
+<header>
+  <h1>Flipbook BUKU.pdf</h1>
+  <div>
+    <button class="btn" onclick="downloadAll()">⬇️ Unduh ZIP</button>
+  </div>
+</header>
+
+<div class="book-container">
+  <div id="flipbook">
+    <div class="page"><img data-src="page_001.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_002.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_003.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_004.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_005.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_006.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_007.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_008.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_009.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_010.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_011.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_012.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_013.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_014.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_015.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_016.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_017.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_018.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_019.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_020.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_021.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_022.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_023.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_024.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_025.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_026.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_027.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_028.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_029.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_030.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_031.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_032.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_033.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_034.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_035.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_036.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_037.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_038.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_039.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_040.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_041.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_042.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_043.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_044.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_045.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_046.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_047.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_048.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_049.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_050.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_051.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_052.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_053.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_054.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_055.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_056.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_057.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_058.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_059.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_060.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_061.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_062.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_063.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_064.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_065.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_066.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_067.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_068.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_069.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_070.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_071.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_072.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_073.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_074.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_075.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_076.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_077.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_078.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_079.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_080.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_081.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_082.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_083.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_084.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_085.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_086.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_087.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_088.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_089.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_090.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_091.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_092.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_093.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_094.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_095.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_096.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_097.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_098.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_099.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_100.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_101.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_102.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_103.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_104.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_105.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_106.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_107.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_108.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_109.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_110.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_111.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_112.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_113.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_114.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_115.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_116.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_117.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_118.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_119.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_120.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_121.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_122.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_123.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_124.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_125.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_126.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_127.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_128.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_129.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_130.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_131.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_132.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_133.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_134.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_135.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_136.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_137.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_138.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_139.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_140.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_141.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_142.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_143.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_144.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_145.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_146.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_147.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_148.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_149.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_150.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_151.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_152.png" loading="lazy" alt="halaman"></div><div class="page"><img data-src="page_153.png" loading="lazy" alt="halaman"></div>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="btn" onclick="$('#flipbook').turn('previous')">⟨ Sebelumnya</button>
+  <button class="btn" onclick="$('#flipbook').turn('next')">Berikutnya ⟩</button>
+</div>
+
+<div class="thumbstrip" id="thumbstrip"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.js"></script>
+<script>
+  const total = 153;
+  function lazyLoad(page){
+    const imgs = document.querySelectorAll('#flipbook .page img');
+    [page-1,page,page+1].forEach(i=>{
+      if(i>=1 && i<=total){
+        const img = imgs[i-1];
+        if(img && !img.src) img.src = img.dataset.src;
+      }
+    });
+  }
+  $('#flipbook').turn({
+    width:900,
+    height:600,
+    autoCenter:true,
+    display:'double',
+    elevation:50,
+    gradients:true,
+    when:{ turning:function(e,page){ lazyLoad(page); } }
+  });
+  lazyLoad(1);
+  // thumbnails
+  const thumbstrip = document.getElementById('thumbstrip');
+  for(let i=1;i<=total;i++){ 
+    const t=document.createElement('img');
+    t.dataset.page=i;
+    t.src="page_"+String(i).padStart(3,'0')+".png";
+    t.onclick=()=>$('#flipbook').turn('page', i);
+    thumbstrip.appendChild(t);
+  }
+  function downloadAll(){ window.location.href='flipbook_turnjs_bundle.zip'; }
+</script>
+</body>
+</html>
